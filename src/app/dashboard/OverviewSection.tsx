@@ -4,28 +4,28 @@ import TotalOrderSummary from "../../components/TotalOrderSummary";
 
 const dashboardStatsGrid = [
   {
-    orderImage: "img_box_svgrepo_com.svg",
+    orderImage: "box_svgrepo.com.png",
     orderText: "Total order",
     orderCount: "10",
   },
-  { orderImage: "img_clock.svg", orderText: "Pending", orderCount: "5" },
+  { orderImage: "clock-seven_svgrepo.com.png", orderText: "Pending", orderCount: "5" },
   {
-    orderImage: "img_box_check_svgrepo_com.svg",
+    orderImage: "Vector (2).png",
     orderText: "Confirmed",
     orderCount: "3",
   },
   {
-    orderImage: "img_fail_error_aler.svg",
+    orderImage: "Vector (3).png",
     orderText: "Cancelled",
     orderCount: "2",
   },
   {
-    orderImage: "img_delivery_truck.svg",
+    orderImage: "Layer_2.png",
     orderText: "On going",
     orderCount: "1",
   },
   {
-    orderImage: "img_tick_svgrepo_com.svg",
+    orderImage: "tick_svgrepo.com.png",
     orderText: "Delivered",
     orderCount: "2",
   },

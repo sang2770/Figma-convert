@@ -9,7 +9,6 @@ const variants = {
   outline: {
     black_900: "border-[#000000] border-2 border-solid",
   },
-
   fill: {
     white_A700: "bg-[#ffffff]",
   },
@@ -20,27 +19,25 @@ const sizes = {
   xs: "h-[50px] pl-3.5 pr-2 text-[20px]",
 } as const;
 
-type InputProps = Omit<
-  React.ComponentPropsWithoutRef<"input">,
-  "prefix" | "size"
-> &
+type InputProps = Omit<React.ComponentPropsWithoutRef<"input">, "prefix" | "size"> &
   Partial<{
-    prefix?: React.ReactNode;
-    suffix?: React.ReactNode;
-    shape?: keyof typeof shapes;
-    variant?: keyof typeof variants | null;
-    size?: keyof typeof sizes;
-    color?: keyof typeof variants;
-    label?: string;
+    label: string;
+    prefix: React.ReactNode;
+    suffix: React.ReactNode;
+    shape: keyof typeof shapes;
+    variant: keyof typeof variants | null;
+    size: keyof typeof sizes;
+    color: string;
   }>;
+
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       className = "",
-      name,
-      placeholder,
+      name = "",
+      placeholder = "",
       type = "text",
-      label,
+      label = "",
       prefix,
       suffix,
       onChange,
@@ -50,30 +47,20 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       color = "black_900",
       ...restProps
     },
-    ref
+    ref,
   ) => {
     return (
       <label
-        className={`flex items-center justify-center cursor-text border-solid w-full`}
+        className={`${className} flex items-center justify-center cursor-text border-solid  ${shape && shapes[shape]} ${variant && (variants[variant]?.[color as keyof (typeof variants)[typeof variant]] || variants[variant])} ${size && sizes[size]}`}
       >
-        {!!prefix && <span className="mr-2">{prefix}</span>}
-        <input
-          ref={ref}
-          name={name}
-          placeholder={placeholder}
-          type={type}
-          className={`w-full p-2 border ${shapes[shape ?? "round"]} ${
-            sizes[size]
-          } ${variants[variant ?? "outline"]} ${variants[color] ?? ""}`}
-          onChange={onChange}
-          {...restProps}
-        />
-        {!!suffix && <span className="ml-2">{suffix}</span>}
+        {!!label && label}
+        {!!prefix && prefix}
+        <input ref={ref} type={type} name={name} placeholder={placeholder} onChange={onChange} {...restProps} />
+        {!!suffix && suffix}
       </label>
     );
-  }
+  },
 );
 
-Input.displayName = "Input"; // Set display name for debugging
-
 export { Input };
+

@@ -2,30 +2,26 @@
 import React from "react";
 
 const variants = {
-  primary: "checked:border-[3px]",
+  primary: "form-checkbox w-5 h-5 border-2 border-gray-300 rounded-md checked:bg-transparent checked:border-transparent focus:outline-none",
 } as const;
-
 const sizes = {
   xs: "h-[34px] w-[34px]",
 } as const;
 
 type CheckboxProps = Omit<
-  React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  >,
+  React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
   "size" | "prefix" | "type" | "onChange"
-> & {
-  className?: string;
-  name: string;
-  label: string;
-  id: string;
-  onChange?: (checked: boolean) => void;
-  variant?: keyof typeof variants;
-  size?: keyof typeof sizes;
-  onClick?: () => void;
-};
-
+> &
+  Partial<{
+    className: string;
+    name: string;
+    label: string;
+    id: string;
+    onChange: Function;
+    variant: keyof typeof variants;
+    size: keyof typeof sizes;
+    onClick: () => void;
+  }>;
 const CheckBox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
@@ -38,29 +34,30 @@ const CheckBox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       size = "xs",
       ...restProps
     },
-    ref
+    ref,
   ) => {
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-      if (onChange) onChange(e.target.checked);
+      if (onChange) onChange(e?.target?.checked);
     };
 
     return (
-      <div
-        className={`${className} flex items-center gap-[5px] cursor-pointer`}
-      >
-        <input
-          ref={ref}
-          type="checkbox"
-          name={name}
-          id={id}
-          className={`${size && sizes[size]} ${variant && variants[variant]}`}
-          onChange={handleChange}
-          {...restProps}
-        />
-        {!!label && <label htmlFor={id}>{label}</label>}
-      </div>
+      <>
+        <div className={className + " flex items-center gap-[5px] cursor-pointer"}>
+          <input
+            className={` ${(size && sizes[size]) || ""} ${(variant && variants[variant]) || ""}`}
+            ref={ref}
+            type="checkbox"
+            name={name}
+            onChange={handleChange}
+            id={id}
+            {...restProps}
+          />
+          {!!label && <label htmlFor={id}>{label}</label>}
+        </div>
+      </>
     );
-  }
+  },
 );
 
 export { CheckBox };
+

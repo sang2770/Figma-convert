@@ -4,10 +4,7 @@ import Image from "next/image";
 
 const BASE_URL = process.env.BASE_PATH || "/images/";
 
-type ImgProps = React.DetailedHTMLProps<
-  React.ImgHTMLAttributes<HTMLImageElement>,
-  HTMLImageElement
-> &
+type ImgProps = React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> &
   Partial<{
     className: string;
     src: string;
@@ -29,7 +26,6 @@ const Img: React.FC<React.PropsWithChildren<ImgProps>> = ({
   const [imgSrc, setImgSrc] = React.useState(src);
 
   React.useEffect(() => {
-    // Set image source based on the `isStatic` prop
     setImgSrc(src);
   }, [src]);
 
@@ -42,12 +38,10 @@ const Img: React.FC<React.PropsWithChildren<ImgProps>> = ({
       height={height}
       {...restProps}
       onError={() => {
-        setImgSrc(
-          isStatic ? `${BASE_URL}defaultNoData.png` : "defaultNoData.png"
-        );
+        setImgSrc(isStatic ? `${BASE_URL}defaultNoData.png` : "defaultNoData.png");
       }}
     />
   );
 };
-
 export { Img };
+

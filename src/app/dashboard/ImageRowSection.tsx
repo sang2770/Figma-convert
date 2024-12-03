@@ -7,7 +7,7 @@ export default function ImageRowSection() {
       {/* Image row section */}
       <div className="flex justify-center self-stretch px-14 md:px-5 sm:px-4">
         <Img
-          src="img_image_7.png"
+          src="Frame 53.png"
           width={1420}
           height={540}
           alt="First Image"
