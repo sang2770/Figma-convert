@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Img } from "./..";
 import React from "react";
 import { MenuItem, Menu, Sidebar, sidebarClasses } from "react-pro-sidebar";
@@ -32,7 +33,10 @@ export default function SideBar({ ...props }: Props) {
             fontSize: "25px",
             gap: "10px",
             borderRadius: "35px",
-            [`&:hover, &.ps-active`]: { color: "#ffffff", backgroundColor: "#f25d07 !important" },
+            [`&:hover, &.ps-active`]: {
+              color: "#ffffff",
+              backgroundColor: "#f25d07 !important",
+            },
           },
         }}
         rootStyles={{ ["&>ul"]: { gap: "30px" } }}
@@ -48,12 +52,21 @@ export default function SideBar({ ...props }: Props) {
               className="h-[40px] w-[40px]"
             />
           }
-          
+          component={<Link href="/dashboard" />}
         >
           Dashboard
         </MenuItem>
         <MenuItem
-          icon={<Img src="delivery 1.svg" width={50} height={50} alt="Orders Icon" className="h-[50px] w-[50px]" />}
+          icon={
+            <Img
+              src="delivery 1.svg"
+              width={50}
+              height={50}
+              alt="Orders Icon"
+              className="h-[50px] w-[50px]"
+            />
+          }
+          component={<Link href="/ordermanagement" />}
         >
           Order
         </MenuItem>
@@ -67,6 +80,7 @@ export default function SideBar({ ...props }: Props) {
               className="h-[40px] w-[40px]"
             />
           }
+          component={<Link href="/employee" />}
         >
           Employee
         </MenuItem>
@@ -80,12 +94,19 @@ export default function SideBar({ ...props }: Props) {
               className="h-[50px] w-[50px]"
             />
           }
+          component={<Link href="/inventory" />}
         >
           Inventory
         </MenuItem>
         <MenuItem
           icon={
-            <Img src="package-box 1.svg" width={50} height={50} alt="Products Icon" className="h-[50px] w-[50px]" />
+            <Img
+              src="package-box 1.svg"
+              width={50}
+              height={50}
+              alt="Products Icon"
+              className="h-[50px] w-[50px]"
+            />
           }
         >
           Product
@@ -105,21 +126,39 @@ export default function SideBar({ ...props }: Props) {
         </MenuItem>
         <MenuItem
           icon={
-            <Img src="package-box 1.svg" width={50} height={50} alt="Import Icon" className="h-[50px] w-[50px]" />
+            <Img
+              src="package-box 1.svg"
+              width={50}
+              height={50}
+              alt="Import Icon"
+              className="h-[50px] w-[50px]"
+            />
           }
         >
           Import
         </MenuItem>
         <MenuItem
           icon={
-            <Img src="package-box 1.svg" width={50} height={50} alt="Export Icon" className="h-[50px] w-[50px]" />
+            <Img
+              src="package-box 1.svg"
+              width={50}
+              height={50}
+              alt="Export Icon"
+              className="h-[50px] w-[50px]"
+            />
           }
         >
           Export
         </MenuItem>
         <MenuItem
           icon={
-            <Img src="settings 1.svg" width={40} height={40} alt="Settings Icon" className="h-[40px] w-[40px]" />
+            <Img
+              src="settings 1.svg"
+              width={40}
+              height={40}
+              alt="Settings Icon"
+              className="h-[40px] w-[40px]"
+            />
           }
         >
           Setting
@@ -128,4 +167,3 @@ export default function SideBar({ ...props }: Props) {
     </Sidebar>
   );
 }
-

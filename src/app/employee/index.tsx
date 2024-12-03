@@ -8,16 +8,14 @@ import EmployeeSection from "./EmployeeSection";
 import { createColumnHelper } from "@tanstack/react-table";
 import React from "react";
 
-const tableData = [
-  {
-    rowid: "01",
-    rowname: "John Doe",
-    rowdate: "Male",
-    rowquantity: "12/12/1998",
-    rowvalue: "0987654321",
-    rowstatus: "New York",
-  },
-];
+const tableData = Array.from({ length: 10 }, (_, index) => ({
+  rowid: index,
+  rowname: "John Doe",
+  rowdate: "Male",
+  rowquantity: "12/12/1998",
+  rowvalue: "0987654321",
+  rowstatus: "New York",
+}));
 
 type TableRowType = {
   rowid: string;
@@ -61,7 +59,7 @@ export default function EmployeePage() {
           <div className="ml-4 flex justify-center">
             <Text
               as="p"
-              className="w-full text-[20px] font-normal leading-9 text-[#000000] lg:text-[17px]"
+              className="w-full text-center text-[20px] font-normal leading-9 text-[#000000] lg:text-[17px]"
             >
               {info.getValue<string>()}
             </Text>
@@ -161,18 +159,18 @@ export default function EmployeePage() {
               {info.getValue<string>()}
             </Text>
             <Img
-              src="img_edit.svg"
-              width={49}
+              src="img_edit.png"
+              width={40}
               height={40}
               alt="Edit"
-              className="h-[40px]"
+              className="h-[40px] p-[8px]"
             />
             <Img
-              src="img_thumbs_up.svg"
-              width={49}
-              height={48}
+              src="img_thumbs_up.png"
+              width={40}
+              height={40}
               alt="Thumbsup"
-              className="mr-2.5 h-[48px]"
+              className="mr-2.5 h-[40px] p-[8px]"
             />
           </div>
         ),
@@ -192,50 +190,46 @@ export default function EmployeePage() {
   }, []);
   return (
     <div className="flex flex-col gap-[30px] bg-[#f8f8f8] py-6 sm:py-4">
-    {/* employee section */}
-    <EmployeeSection />
-    <ReactTable
-      variant="simple"
-      bodyProps={{
-        className:
-          "before: content-['-'] before: opacity-0 before:leading-[60px]",
-      }}
-      headerCellProps={{ className: "bg-[#f25d07]" }}
-      rowDataProps={{ className: "bg-[#ffffff]" }}
-      cellProps={{
-        className: "border- [#000000] border-t border-b border-solid",
-      }}
-      className="mx-5 border border-solid border- [#000000] bg-[#ffffff] shadow-[5px_5px_7px_0_#f25d07] md:mx-0 md:block md: overflow-x-auto md:whitespace-nowrap"
-      columns={tableColumns}
-      data={tableData}
-    />
+      {/* employee section */}
+      <EmployeeSection />
+      <ReactTable
+        variant="simple"
+        headerCellProps={{ className: "bg-[#f25d07]" }}
+        rowDataProps={{ className: "bg-[#ffffff]" }}
+        cellProps={{
+          className: "border- [#000000] border-t border-b border-solid",
+        }}
+        className="mx-5 border border-solid border- [#000000] bg-[#ffffff] shadow-[5px_5px_7px_0_#f25d07] md:mx-0 md:block md: overflow-x-auto md:whitespace-nowrap"
+        columns={tableColumns}
+        data={tableData}
+      />
 
-    <div className="mx-10 mb-1.5 flex justify-end gap-[11px] md:mx-0 sm:flex-col">
-      <Button
-        shape="round"
-        className="min-w-[116px] rounded-[10px] px-2 font-['Nunito_Sans'] sm: px-5"
-      >
-        Previous
-      </Button>
-      <Button
-        shape="round"
-        className="min-w-[44px] rounded-[10px] px-3.5 font-['Nunito_Sans'] sm:px-5"
-      >
-        1
-      </Button>
-      <Button
-        shape="round"
-        className="min-w-[44px] rounded-[10px] px-3.5 font-['Nunito_Sans'] sm: px-5"
-      >
-        2
-      </Button>
-      <Button
-        shape="round"
-        className="min-w-[74px] rounded-[10px] px-2 font-['Nunito_Sans'] sm:px-5"
-      >
-        Next
-      </Button>
+      <div className="mx-10 mb-1.5 flex justify-end gap-[11px] md:mx-0 sm:flex-col">
+        <Button
+          shape="round"
+          className="min-w-[116px] rounded-[10px] px-2 font-['Nunito_Sans'] sm: px-5"
+        >
+          Previous
+        </Button>
+        <Button
+          shape="round"
+          className="min-w-[44px] rounded-[10px] px-3.5 font-['Nunito_Sans'] sm:px-5"
+        >
+          1
+        </Button>
+        <Button
+          shape="round"
+          className="min-w-[44px] rounded-[10px] px-3.5 font-['Nunito_Sans'] sm: px-5"
+        >
+          2
+        </Button>
+        <Button
+          shape="round"
+          className="min-w-[74px] rounded-[10px] px-2 font-['Nunito_Sans'] sm:px-5"
+        >
+          Next
+        </Button>
+      </div>
     </div>
-  </div>
   );
 }

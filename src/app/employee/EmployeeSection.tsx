@@ -1,7 +1,8 @@
-import { Heading, Img, SelectBox, Button,Input } from "@/components";
+import { Heading, Img, SelectBox, Button, Input } from "@/components";
 import { CloseSVG } from "../../components/Input/close";
 import React from "react";
 import { OptionProps } from "react-select";
+import EmployeeModal from "./EmployeeCreate";
 
 const dropDownOptions = [
   { label: "Option1", value: "option1" },
@@ -11,7 +12,10 @@ const dropDownOptions = [
 
 export default function EmployeeSection() {
   const [searchBarValue3, setSearchBarValue3] = React.useState("");
+  const [isModalOpen, setModalOpen] = React.useState(false);
 
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
   return (
     <>
       {/* employee section */}
@@ -43,13 +47,23 @@ export default function EmployeeSection() {
                 />
               </div>
             }
-            suffix={searchBarValue3?.length > 0 ? <CloseSVG onClick={() => setSearchBarValue3("")} /> : null}
+            suffix={
+              searchBarValue3?.length > 0 ? (
+                <CloseSVG onClick={() => setSearchBarValue3("")} />
+              ) : null
+            }
             className="w-[22%] gap-2.5 rounded-[5px] border border-[#f25d07] font-['Nunito_Sans'] text-[#f25d07] md:w-full"
           />
           <SelectBox
             shape="round"
             indicator={
-              <Img src="arrow_bottom.svg" width={24} height={20} alt="Arrow Down" className="h-[20px] w-[24px]" />
+              <Img
+                src="arrow_bottom.svg"
+                width={24}
+                height={20}
+                alt="Arrow Down"
+                className="h-[20px] w-[24px]"
+              />
             }
             getOptionLabel={(e: OptionProps) => (
               <>
@@ -66,6 +80,7 @@ export default function EmployeeSection() {
           <Button
             color="orange_800"
             size="xs"
+            onClick={openModal}
             leftIcon={
               <Img
                 src="img_pluscircle_white_a700.svg"
@@ -81,7 +96,7 @@ export default function EmployeeSection() {
           </Button>
         </div>
       </div>
+      <EmployeeModal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
 }
-

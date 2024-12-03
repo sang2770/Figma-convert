@@ -7,7 +7,6 @@ import { CloseSVG } from "../../components/Input/close";
 import { ReactTable } from "../../components/ReactTable";
 import { createColumnHelper } from "@tanstack/react-table";
 import { OptionProps } from "react-select";
-import SideBar from "@/components/Sidebar";
 
 const dropDownOptions = [
   { label: "Option1", value: "option1" },
@@ -20,7 +19,8 @@ const table1Data = Array.from({ length: 10 }, (_, index) => ({
   rowcustomer: `Customer ${index + 1}`,
   rowdateorder: `01/11/2024`,
   rowvalue: `${200000 * (index + 1)},000 VNÐ`,
-  rowstatus: "Pending",
+  rowstatus: "In Stock",
+  rowquantity: `${index + 1} units`,
 }));
 
 type Table1RowType = {
@@ -29,6 +29,7 @@ type Table1RowType = {
   rowdateorder: string;
   rowvalue: string;
   rowstatus: string;
+  rowquantity: string;
 };
 
 export default function OrderManagementPage() {
@@ -78,7 +79,7 @@ export default function OrderManagementPage() {
               as="h3"
               className="flex-1 text-center text-[25px] font-bold leading-[45px] text-[#ffffff] lg:text-[21px]"
             >
-              Customer
+              Name
             </Heading>
           </div>
         ),
@@ -101,11 +102,34 @@ export default function OrderManagementPage() {
               as="h4"
               className="w-full text-center text-[25px] font-bold leading-[45px] text-[#ffffff] lg:text-[21px]"
             >
-              Date Order
+              Date Import
             </Heading>
           </div>
         ),
         meta: { width: "294px" },
+      }),
+      table1ColumnHelper.accessor("rowquantity", {
+        cell: (info) => (
+          <div className="ml-[30px] flex justify-center">
+            <Text
+              as="p"
+              className="w-full text-center text-[20px] font-normal leading-9 text-[#000000] lg:text-[17px]"
+            >
+              {info.getValue()}
+            </Text>
+          </div>
+        ),
+        header: () => (
+          <div className="ml-[30px] flex">
+            <Heading
+              as="h5"
+              className="w-full text-center text-[25px] font-bold leading-[45px] text-[#ffffff] lg:text-[21px]"
+            >
+              Quantity
+            </Heading>
+          </div>
+        ),
+        meta: { width: "262px" },
       }),
       table1ColumnHelper.accessor("rowvalue", {
         cell: (info) => (
@@ -240,7 +264,7 @@ export default function OrderManagementPage() {
               }
               className="ml-5 min-w-[136px] gap-1 rounded-[5px] px-2 font-['Nunito_Sans'] md:ml-0"
             >
-              Add Order
+              Add Inventory
             </Button>
           </div>
         </div>

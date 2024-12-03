@@ -3,15 +3,14 @@
   font-weight: 600;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/Maven ProSemiBold.ttf");
+  src: url("/fonts/MavenPro-Medium.ttf");
 }
-
 @font-face {
   font-family: "Maven Pro";
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/Maven ProBold.ttf");
+  src: url("/fonts/MavenPro-Bold.ttf");
 }
 
 @font-face {
@@ -19,7 +18,7 @@
   font-weight: 800;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/Maven ProExtraBold.ttf");
+  src: url("/fonts/MavenPro-ExtraBold.ttf");
 }
 
 @font-face {
@@ -27,7 +26,7 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/Maven ProRegular.ttf");
+  src: url("/fonts/MavenPro-Regular.ttf");
 }
 
 @font-face {
@@ -35,7 +34,7 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/NunitoSans Regular.ttf");
+  src: url("/fonts/NunitoSans-Regular.ttf");
 }
 
 @font-face {
@@ -43,7 +42,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/MartelSansBold.ttf");
+  src: url("/fonts/MartelSans-Bold.ttf");
 }
 
 @font-face {
@@ -51,5 +50,5 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/MartelSansRegular.ttf");
+  src: url("/fonts/MartelSans-Regular.ttf");
 }
