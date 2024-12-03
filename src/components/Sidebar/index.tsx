@@ -41,25 +41,26 @@ export default function SideBar({ ...props }: Props) {
         <MenuItem
           icon={
             <Img
-              src="img_dashboard_1_black_900.svg"
+              src="dashboard 1.svg"
               width={40}
               height={40}
               alt="Dashboard Icon"
               className="h-[40px] w-[40px]"
             />
           }
+          
         >
           Dashboard
         </MenuItem>
         <MenuItem
-          icon={<Img src="img_delivery_1.svg" width={50} height={50} alt="Orders Icon" className="h-[50px] w-[50px]" />}
+          icon={<Img src="delivery 1.svg" width={50} height={50} alt="Orders Icon" className="h-[50px] w-[50px]" />}
         >
           Order
         </MenuItem>
         <MenuItem
           icon={
             <Img
-              src="img_briefcase_1_white_a700.svg"
+              src="briefcase 1.svg"
               width={40}
               height={40}
               alt="Employees Icon"
@@ -72,7 +73,7 @@ export default function SideBar({ ...props }: Props) {
         <MenuItem
           icon={
             <Img
-              src="img_package_box_1.svg"
+              src="package-box 1.svg"
               width={50}
               height={50}
               alt="Inventory Icon"
@@ -84,7 +85,7 @@ export default function SideBar({ ...props }: Props) {
         </MenuItem>
         <MenuItem
           icon={
-            <Img src="img_package_box_1.svg" width={50} height={50} alt="Products Icon" className="h-[50px] w-[50px]" />
+            <Img src="package-box 1.svg" width={50} height={50} alt="Products Icon" className="h-[50px] w-[50px]" />
           }
         >
           Product
@@ -92,7 +93,7 @@ export default function SideBar({ ...props }: Props) {
         <MenuItem
           icon={
             <Img
-              src="img_package_box_1.svg"
+              src="package-box 1.svg"
               width={50}
               height={50}
               alt="Categories Icon"
@@ -104,21 +105,21 @@ export default function SideBar({ ...props }: Props) {
         </MenuItem>
         <MenuItem
           icon={
-            <Img src="img_package_box_1.svg" width={50} height={50} alt="Import Icon" className="h-[50px] w-[50px]" />
+            <Img src="package-box 1.svg" width={50} height={50} alt="Import Icon" className="h-[50px] w-[50px]" />
           }
         >
           Import
         </MenuItem>
         <MenuItem
           icon={
-            <Img src="img_package_box_1.svg" width={50} height={50} alt="Export Icon" className="h-[50px] w-[50px]" />
+            <Img src="package-box 1.svg" width={50} height={50} alt="Export Icon" className="h-[50px] w-[50px]" />
           }
         >
           Export
         </MenuItem>
         <MenuItem
           icon={
-            <Img src="img_settings_1.svg" width={40} height={40} alt="Settings Icon" className="h-[40px] w-[40px]" />
+            <Img src="settings 1.svg" width={40} height={40} alt="Settings Icon" className="h-[40px] w-[40px]" />
           }
         >
           Setting
