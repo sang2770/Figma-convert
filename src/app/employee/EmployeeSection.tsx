@@ -35,7 +35,7 @@ export default function EmployeeSection() {
             prefix={
               <div className="flex h-[20px] w-[20px] items-center justify-center">
                 <Img
-                  src="img_rewind.svg"
+                  src="Vector (1).png"
                   width={20}
                   height={20}
                   alt="Rewind"
@@ -49,18 +49,11 @@ export default function EmployeeSection() {
           <SelectBox
             shape="round"
             indicator={
-              <Img src="img_arrowdown.svg" width={24} height={20} alt="Arrow Down" className="h-[20px] w-[24px]" />
+              <Img src="arrow_bottom.svg" width={24} height={20} alt="Arrow Down" className="h-[20px] w-[24px]" />
             }
             getOptionLabel={(e: OptionProps) => (
               <>
                 <div className="flex items-center">
-                  <Img
-                    src="img_pluscircle.svg"
-                    width={20}
-                    height={20}
-                    alt="Plus-circle"
-                    className="h-[20px] w-[20px]"
-                  />
                   <span>{e.label}</span>
                 </div>
               </>

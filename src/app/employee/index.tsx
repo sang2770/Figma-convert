@@ -67,6 +67,16 @@ export default function EmployeePage() {
             </Text>
           </div>
         ),
+        header: (info) => (
+          <div className="ml-4 flex">
+            <Heading
+              as="h3"
+              className="w-full text-center text-[25px] font-bold leading-[45px] text-[#ffffff] lg:text-[21px]"
+            >
+              Name
+            </Heading>
+          </div>
+        ),
         meta: { width: "332px" },
       }),
 
@@ -87,7 +97,7 @@ export default function EmployeePage() {
               as="h3"
               className="w-full text-center text-[25px] font-bold leading-[45px] text-[#ffffff] lg:text-[21px]"
             >
-              Name
+              Gender
             </Heading>
           </div>
         ),
@@ -181,59 +191,51 @@ export default function EmployeePage() {
     ];
   }, []);
   return (
-    <div className="w-full bg-[#ffffff]">
-      <Header />
-      <div className="flex gap-5">
-        <Sidebar />
-        <div className="flex-1">
-          <div className="flex flex-col gap-[30px] bg-[#f8f8f8] py-6 sm:py-4">
-            {/* employee section */}
-            <EmployeeSection />
-            <ReactTable
-              variant="simple"
-              bodyProps={{
-                className:
-                  "before: content-['-'] before: opacity-0 before:leading-[60px]",
-              }}
-              headerCellProps={{ className: "bg-[#f25d07]" }}
-              rowDataProps={{ className: "bg-[#ffffff]" }}
-              cellProps={{
-                className: "border- [#000000] border-t border-b border-solid",
-              }}
-              className="mx-5 border border-solid border- [#000000] bg-[#ffffff] shadow-[5px_5px_7px_0_#f25d07] md:mx-0 md:block md: overflow-x-auto md:whitespace-nowrap"
-              columns={tableColumns}
-              data={tableData}
-            />
+    <div className="flex flex-col gap-[30px] bg-[#f8f8f8] py-6 sm:py-4">
+    {/* employee section */}
+    <EmployeeSection />
+    <ReactTable
+      variant="simple"
+      bodyProps={{
+        className:
+          "before: content-['-'] before: opacity-0 before:leading-[60px]",
+      }}
+      headerCellProps={{ className: "bg-[#f25d07]" }}
+      rowDataProps={{ className: "bg-[#ffffff]" }}
+      cellProps={{
+        className: "border- [#000000] border-t border-b border-solid",
+      }}
+      className="mx-5 border border-solid border- [#000000] bg-[#ffffff] shadow-[5px_5px_7px_0_#f25d07] md:mx-0 md:block md: overflow-x-auto md:whitespace-nowrap"
+      columns={tableColumns}
+      data={tableData}
+    />
 
-            <div className="mx-10 mb-1.5 flex justify-end gap-[11px] md:mx-0 sm:flex-col">
-              <Button
-                shape="round"
-                className="min-w-[116px] rounded-[10px] px-2 font-['Nunito_Sans'] sm: px-5"
-              >
-                Previous
-              </Button>
-              <Button
-                shape="round"
-                className="min-w-[44px] rounded-[10px] px-3.5 font-['Nunito_Sans'] sm:px-5"
-              >
-                1
-              </Button>
-              <Button
-                shape="round"
-                className="min-w-[44px] rounded-[10px] px-3.5 font-['Nunito_Sans'] sm: px-5"
-              >
-                2
-              </Button>
-              <Button
-                shape="round"
-                className="min-w-[74px] rounded-[10px] px-2 font-['Nunito_Sans'] sm:px-5"
-              >
-                Next
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="mx-10 mb-1.5 flex justify-end gap-[11px] md:mx-0 sm:flex-col">
+      <Button
+        shape="round"
+        className="min-w-[116px] rounded-[10px] px-2 font-['Nunito_Sans'] sm: px-5"
+      >
+        Previous
+      </Button>
+      <Button
+        shape="round"
+        className="min-w-[44px] rounded-[10px] px-3.5 font-['Nunito_Sans'] sm:px-5"
+      >
+        1
+      </Button>
+      <Button
+        shape="round"
+        className="min-w-[44px] rounded-[10px] px-3.5 font-['Nunito_Sans'] sm: px-5"
+      >
+        2
+      </Button>
+      <Button
+        shape="round"
+        className="min-w-[74px] rounded-[10px] px-2 font-['Nunito_Sans'] sm:px-5"
+      >
+        Next
+      </Button>
     </div>
+  </div>
   );
 }
