@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "Maven Pro";
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/MavenPro-Medium.ttf");
+  }
+  @font-face {
+    font-family: "Maven Pro";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/MavenPro-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: "Maven Pro";
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/MavenPro-ExtraBold.ttf");
+  }
+  
+  @font-face {
+    font-family: "Maven Pro";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/MavenPro-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "Nunito Sans";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/NunitoSans-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "Martel Sans";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/MartelSans-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: "Martel Sans";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/MartelSans-Regular.ttf");
+  }
+  
+
+  #login-image {
+    background-image: url("/images/login.png");
+  }
